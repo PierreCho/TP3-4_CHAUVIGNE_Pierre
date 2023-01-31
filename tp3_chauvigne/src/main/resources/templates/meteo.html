@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+    </head>
+    <body>
+        <h1>Result</h1>
+
+        <p th:text="'X coordinate: ' + ${xCoordinate} "/>
+        <p th:text="'Y coordinate: ' + ${yCoordinate} "/>
+
+        <br>
+
+        <p th:text="'Extrait des forecasts de la ville de ' + ${addressPOST} "/>
+
+        <ul th:each="forecast : ${forecasts}">
+            <li th:text="${'[' + forecast.getDatetime() + '] entre ' + forecast.getTmin() + '°C et ' + forecast.getTmax() + '°C avec la météo ' + forecast.getWeather()}"/>
+        </ul>
+    </body>
+</html>
